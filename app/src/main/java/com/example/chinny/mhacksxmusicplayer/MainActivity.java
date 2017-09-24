@@ -31,6 +31,8 @@ import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.GridView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -49,6 +51,7 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -74,14 +77,18 @@ public class MainActivity extends AppCompatActivity {
     private Handler mBackgroundHandler;
     private HandlerThread mBackgroundThread;
 
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference();
-    DatabaseReference song19HappinessVal = myRef.child("19").child("highlevel")
-            .child("mood_happy").child("all").child("happy");
+    private ArrayList<Song> songList;
+    private ListView songView;
 
     private TextView emoteStatus;
     private FloatingActionButton captureFab;
     private Button happyButton;
+    private Button sadButton;
+    private Button angryButton;
+    private Button relaxedButton;
+    private SongEmotionFinder emoteFinder;
+
+    private SongAdapter songAdt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +98,11 @@ public class MainActivity extends AppCompatActivity {
         textureView.setSurfaceTextureListener(textureListener);
         emoteStatus = (TextView) findViewById(R.id.emotionStatus);
         emoteStatus.setText("Placeholder for detected emotion");
+
+        songView = (ListView) findViewById(R.id.songList);
+        songList = new ArrayList<Song>();
+        songView.setVisibility(View.GONE);
+
         captureFab = (FloatingActionButton) findViewById(R.id.captureFab);
         captureFab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,11 +110,36 @@ public class MainActivity extends AppCompatActivity {
                 takePicture();
             }
         });
+
         happyButton = (Button) findViewById(R.id.happyButton);
         happyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 PlayHappyMusic();
+            }
+        });
+
+        sadButton = (Button) findViewById(R.id.sadButton);
+        sadButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PlaySadMusic();
+            }
+        });
+
+        angryButton = (Button) findViewById(R.id.angryButton);
+        angryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PlayAngryMusic();
+            }
+        });
+
+        relaxedButton = (Button) findViewById(R.id.relaxButton);
+        relaxedButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PlayRelaxedMusic();
             }
         });
     }
@@ -357,21 +394,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void PlayHappyMusic(){
-        // Read from the database
-        song19HappinessVal.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                Double value = (Double) dataSnapshot.getValue();
-                Log.d(TAG, "Value is: " + value);
-            }
 
-            @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-                Log.w(TAG, "Failed to read value.", error.toException());
-            }
-        });
+    }
+
+    void PlaySadMusic(){
+
+    }
+
+    void PlayAngryMusic(){
+
+    }
+
+    void PlayRelaxedMusic(){
+
     }
 }
