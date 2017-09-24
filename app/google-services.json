@@ -1,9 +1,9 @@
 {
   "project_info": {
     "project_number": "199115791497",
-    "firebase_url": "https://mhacksxacc-codebase.firebaseio.com",
-    "project_id": "mhacksxacc-codebase",
-    "storage_bucket": "mhacksxacc-codebase.appspot.com"
+    "firebase_url": "https://emotion-music-recommender.firebaseio.com",
+    "project_id": "emotion-music-recommender",
+    "storage_bucket": "emotion-music-recommender.appspot.com"
   },
   "client": [
     {
