@@ -75,7 +75,9 @@ public class MainActivity extends AppCompatActivity {
     private HandlerThread mBackgroundThread;
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference("message");
+    DatabaseReference myRef = database.getReference();
+    DatabaseReference song19HappinessVal = myRef.child("19").child("highlevel")
+            .child("mood_happy").child("all").child("happy");
 
     private TextView emoteStatus;
     private FloatingActionButton captureFab;
@@ -356,12 +358,12 @@ public class MainActivity extends AppCompatActivity {
 
     void PlayHappyMusic(){
         // Read from the database
-        myRef.addValueEventListener(new ValueEventListener() {
+        song19HappinessVal.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
-                String value = dataSnapshot.getValue(String.class);
+                Double value = (Double) dataSnapshot.getValue();
                 Log.d(TAG, "Value is: " + value);
             }
 
