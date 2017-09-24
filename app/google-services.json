@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "199115791497",
+    "firebase_url": "https://mhacksxacc-codebase.firebaseio.com",
+    "project_id": "mhacksxacc-codebase",
+    "storage_bucket": "mhacksxacc-codebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:199115791497:android:e0ed6f9cf557a732",
+        "android_client_info": {
+          "package_name": "com.example.chinny.mhacksxmusicplayer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "199115791497-cqqo29k410ad2vsonivq8n7fu5eloqkf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.chinny.mhacksxmusicplayer",
+            "certificate_hash": "c1e1f1b03f15528c810137d03ff004a0b19dec95"
+          }
+        },
+        {
+          "client_id": "199115791497-7brni1vfa182g41pp9u466f9hnrv0803.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChFHGAvHvy25y5ngdOjj7E5TF1TAB3Dao"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "199115791497-7brni1vfa182g41pp9u466f9hnrv0803.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
